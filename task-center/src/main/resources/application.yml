@@ -1,0 +1,13 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: task-center
+  main:
+    #当遇到同样名字的时候，是否允许覆盖注册
+    allow-bean-definition-overriding: true
+eureka:
+  client:
+    serviceUrl:
+      #注册到eureka服务端的地址
+      defaultZone: http://localhost:8080/eureka/
