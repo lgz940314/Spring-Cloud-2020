@@ -8,10 +8,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 @FeignClient(value = "task-center")
 public interface TaskApi {
 
-    @GetMapping("/taskCenter/task/getTask")
+    @GetMapping("/task/getTask")
     TaskBaseInfo getTask();
 
-    @GetMapping("/taskCenter/task/saveTask")
+    @GetMapping("/task/saveTask")
     TaskBaseInfo saveTask(@RequestParam String taskName);
 
 }

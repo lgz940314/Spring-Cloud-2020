@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-@RequestMapping("/taskCenter/task")
+@RequestMapping("/task")
 public class TaskController {
 
     @GetMapping("getTask")

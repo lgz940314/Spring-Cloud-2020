@@ -1,0 +1,28 @@
+server:
+  port: 8079
+spring:
+  application:
+    name: gateway-server
+  cloud:
+    gateway:
+      # 路由（routes：路由，它由唯一标识（ID）、目标服务地址（uri）、一组断言（predicates）和一组过滤器组成（filters）。filters 不是必需参数。
+      routes:
+#        - id: task # 访问地址 http://localhost:8079/task/getTask
+#          uri: lb://task-center
+#          predicates:
+#            - Method=GET,POST
+        # 路由标识（id：标识，具有唯一性）   限流
+        - id: task # 访问地址http://localhost:8079/api/v2/bi/task52/task/getTask
+          # 目标服务地址（uri：地址，请求转发后的地址）
+          uri: lb://task-center
+          # 路由条件（predicates：断言，匹配 HTTP 请求内容）
+          predicates:
+          - Path=/api/v2/bi/**
+          # 过滤器（filters：过滤器，过滤规则）
+          filters:
+          - StripPrefix=4
+eureka:
+  client:
+    serviceUrl:
+      #注册到eureka服务端的地址
+      defaultZone: http://localhost:8080/eureka/
