@@ -20,6 +20,11 @@
 	</properties>
 
 	<dependencies>
+        <!-- spring oauth2.0 (包含了spring security无需单独引入) 相关 -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-oauth2</artifactId>
+        </dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>

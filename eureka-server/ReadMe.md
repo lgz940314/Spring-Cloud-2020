@@ -20,7 +20,7 @@ Eureka Server本身也是一个服务，同时又是一个注册中心。
     
     server:
       #设置Eureka Server WEB控制台端口，自定义
-      port: 8080
+      port: 8888
     spring:
       application:
         #设置spring应用命名，可以自定义，非必要
