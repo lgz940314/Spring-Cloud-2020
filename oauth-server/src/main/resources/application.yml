@@ -9,6 +9,17 @@ spring:
   main:
     #当遇到同样名字的时候，是否允许覆盖注册
     allow-bean-definition-overriding: true
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    #    password: xx
+    database: 1
+    jedis:
+      pool:
+        max-active: 8
+        max-wait: -1ms
+        max-idle: 8
+        min-idle: 0
 # actuator
 management:
   endpoints:

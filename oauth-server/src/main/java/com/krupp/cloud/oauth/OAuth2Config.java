@@ -27,6 +27,7 @@ public class OAuth2Config extends AuthorizationServerConfigurerAdapter {
     @Autowired
     PasswordEncoder passwordEncoder;
     @Autowired
+    @Qualifier("kiteUserDetailsService")
     public UserDetailsService kiteUserDetailsService;
     @Autowired
     private AuthenticationManager authenticationManager;
@@ -44,7 +45,8 @@ public class OAuth2Config extends AuthorizationServerConfigurerAdapter {
                 // 或者你可以把这个东西设置到全局域上面去（例如 GlobalAuthenticationManagerConfigurer 这个配置对象），
                 // 当你设置了这个之后，那么 "refresh_token" 即刷新令牌授权类型模式的流程中就会包含一个检查，用来确保这个账号是否仍然有效，假如说你禁用了这个账户的话
                 .userDetailsService(kiteUserDetailsService)
-                .accessTokenConverter(accessTokenConverter());
+                .accessTokenConverter(accessTokenConverter())
+                .tokenStore(redisTokenStore);
 
     }
 

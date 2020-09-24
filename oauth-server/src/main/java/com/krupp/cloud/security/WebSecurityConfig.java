@@ -41,14 +41,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     /**
      * 配置了两个用户
      */
-    @Override
+/*    @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         //下面这两行配置表示在内存中配置了两个用户
         auth.inMemoryAuthentication()
                 .withUser("admin").roles("admin").password(passwordEncoder().encode("123456"))
                 .and()
                 .withUser("user").roles("user").password(passwordEncoder().encode("123456"));
-    }
+    }*/
 
 
 }

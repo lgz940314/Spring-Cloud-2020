@@ -3,6 +3,7 @@ package com.krupp.cloud.security;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -23,6 +24,7 @@ public class KiteUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        System.out.println("----------------校验密码----------------");
         // 查询数据库操作
         if(!username.equals("admin")){
             throw new UsernameNotFoundException("the user is not found");
@@ -33,7 +35,8 @@ public class KiteUserDetailsService implements UserDetailsService {
             authorities.add(new SimpleGrantedAuthority(role));
             // 线上环境应该通过用户名查询数据库获取加密后的密码
             String password = passwordEncoder.encode("123456");
-            return new org.springframework.security.core.userdetails.User(username,password, authorities);
+            User user = new User(username, password, authorities);
+            return user;
         }
     }
 }
