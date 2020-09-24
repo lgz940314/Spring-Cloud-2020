@@ -45,7 +45,6 @@ public class OAuth2Config extends AuthorizationServerConfigurerAdapter {
                 // 当你设置了这个之后，那么 "refresh_token" 即刷新令牌授权类型模式的流程中就会包含一个检查，用来确保这个账号是否仍然有效，假如说你禁用了这个账户的话
                 .userDetailsService(kiteUserDetailsService)
                 .accessTokenConverter(accessTokenConverter());
-                //.tokenStore(redisTokenStore);
 
     }
 
@@ -74,15 +73,6 @@ public class OAuth2Config extends AuthorizationServerConfigurerAdapter {
                 .scopes("all");
 
     }
-
-   /* @Override
-    public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-        clients.inMemory()
-                .withClient("test-client")
-                .secret(passwordEncoder.encode("test-secret"))
-                .authorizedGrantTypes("refresh_token", "password")
-                .scopes("default-scope");
-    }*/
 
     /**
      * token加强

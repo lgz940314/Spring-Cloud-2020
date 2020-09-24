@@ -1,0 +1,23 @@
+# 服务端口号
+server:
+  port: 8085
+
+# 服务名
+spring:
+  application:
+    name: oauth2-server
+  main:
+    #当遇到同样名字的时候，是否允许覆盖注册
+    allow-bean-definition-overriding: true
+# actuator
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+# eureka
+eureka:
+  client:
+    serviceUrl:
+      #注册到eureka服务端的地址
+      defaultZone: http://localhost:8888/eureka/
