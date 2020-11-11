@@ -1,5 +1,6 @@
 package com.krupp.cloud.task.controller;
 
+import com.krupp.cloud.common.annotation.TestAnnotation;
 import com.krupp.cloud.task.domain.TaskBaseInfo;
 import com.krupp.cloud.common.api.user.UserApi;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,7 @@ public class TaskController {
     UserApi userApi;
 
     @GetMapping("getTask")
+    @TestAnnotation
     public TaskBaseInfo getTask(){
         TaskBaseInfo taskBaseInfo = new TaskBaseInfo();
         taskBaseInfo.setId(1);
